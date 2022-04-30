@@ -101,7 +101,6 @@ function FiltersComponent({categories}:FilterOptionsProps){
                 
                 </Grid>
             </CheckboxGroup>
-
         </VStack>
     )
 }

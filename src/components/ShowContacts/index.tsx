@@ -169,7 +169,7 @@ export default function ShowContactsList({contactList}:ShowContactsListProps) {
     },[contactList, firstLetter, lastLetter, searchValue, selectedCategories]);
 
     return(
-        <HStack spacing = {10} alignItems = 'flex-start'>
+        <HStack spacing = {{base:'0', xl:'10'}} alignItems = 'flex-start'>
             <FilterOptions 
                 categories = {companyCategories}
             />
@@ -185,8 +185,8 @@ export default function ShowContactsList({contactList}:ShowContactsListProps) {
                     aria-label = "Open Filters"
                     onClick = {Sidebar.onOpen} 
                     position = 'absolute' 
-                    right = '2.5%' 
-                    top = '0'
+                    right = {{base:'20px', lg:'40px' }}
+                    top = '33px'
                     icon = {<Icon as = {RiMenuLine} />}
                     bg = 'blue.300'
                     color = 'white'
