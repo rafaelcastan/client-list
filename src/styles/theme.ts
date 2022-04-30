@@ -1,6 +1,19 @@
 import { extendTheme } from '@chakra-ui/react';
 
 export const theme = extendTheme({
+    components: {
+        Checkbox: {
+          baseStyle: {
+            control: {
+              borderColor: "#256de9",
+              _checked: {
+                bg: "#050e68"
+              }
+            }
+          }
+        }
+      },
+
     colors:{
       blue:{
           "300" : "#256de9",
@@ -22,14 +35,15 @@ export const theme = extendTheme({
                 bg: 'white',
                 color: 'black',
             },
-        }
+        },
+        
     },
 
     breakpoints:{
         base : '0em',   //0px and values above
         sm: '20em',     //320px ...
         md: '48em',     //768px ...
-        lg: '62em',     //992px ...
+        lg: '64em',     //1024px ...
         xl: '80em',     //1280px ...
         "xl2": '120em', //1920px ...
 
@@ -44,12 +58,6 @@ export const theme = extendTheme({
         xl: "1.25rem",     //20px
         "2xl": "1.5rem",   //24px
         "3xl": "1.75rem",  //28px
-        "4xl": "2.1875rem",//35px  
-        "5xl": "2.5rem",   //40px
-        "6xl": "3.125rem", //50px
-        "7xl": "3.5rem",   //56px
-        "8xl": "4.375rem", //70px
-        "9xl": "8rem",     //128px
       },
 
     fontWeights: {
