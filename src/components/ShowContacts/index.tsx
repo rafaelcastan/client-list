@@ -89,26 +89,27 @@ export default function ShowContactsList({contactList}:ShowContactsListProps) {
 
     const columns:Array<Column<ColumnType>> = useMemo(
         () => [
-          {
-            Header: 'Empresa',
-            accessor: 'companyName',
-          },
-          {
-            Header: 'CEO',
+            {
+            Header: 'Nome',
             accessor: 'name',
-          },
-          {
-            Header: 'Telefone',
-            accessor: 'phone',
-            disableSortBy: true
-          },
-          {
-            Header: 'E-mail',
-            accessor: 'email',
-            disableSortBy: true
-          },
-        ],
-        [],
+            },
+            {
+                Header: 'Empresa',
+                accessor: 'companyName',
+            },
+            
+            {
+                Header: 'Telefone',
+                accessor: 'phone',
+                disableSortBy: true
+            },
+            {
+                Header: 'E-mail',
+                accessor: 'email',
+                disableSortBy: true
+            },
+            ],
+            [],
       );
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = 
@@ -168,62 +169,61 @@ export default function ShowContactsList({contactList}:ShowContactsListProps) {
     },[contactList, firstLetter, lastLetter, searchValue, selectedCategories]);
 
     return(
-        <HStack spacing={10} alignItems='flex-start'>
+        <HStack spacing = {10} alignItems = 'flex-start'>
             <FilterOptions 
-                categories={companyCategories}
+                categories = {companyCategories}
             />
 
             {selectedContact!==undefined &&
                 <ContactDetails 
-                    contact={selectedContact}
+                    contact = {selectedContact}
                 />
-            }
-            
+            }            
 
             {showSidebarButton && (
                 <IconButton 
-                    aria-label="Open Filters"
-                    onClick={Sidebar.onOpen} 
-                    position='absolute' 
-                    right='2.5%' 
-                    top='0'
-                    icon={<Icon as={RiMenuLine} />}
-                    bg='blue.300'
-                    color='white'
-                    borderRadius='full'
-                    _focus={{border:'none'}}
+                    aria-label = "Open Filters"
+                    onClick = {Sidebar.onOpen} 
+                    position = 'absolute' 
+                    right = '2.5%' 
+                    top = '0'
+                    icon = {<Icon as = {RiMenuLine} />}
+                    bg = 'blue.300'
+                    color = 'white'
+                    borderRadius = 'full'
+                    _focus = {{border:'none'}}
                 >
                 </IconButton>
             )}
         
-            <Box overflowX='auto' w="100%">
+            <Box overflowX = 'auto' w = "100%">
                 <Table {...getTableProps()} 
-                       bg="blue.300" 
-                       color='white'
-                       borderRadius='xl'
-                       overflow='hidden'
+                       bg = "blue.300" 
+                       color = 'white'
+                       borderRadius = 'xl'
+                       overflow = 'hidden'
                 >
                     <Thead>
                         {headerGroups.map((headerGroup) => (
                         <Tr {...headerGroup.getHeaderGroupProps()} 
-                            bg="blue.500"
-                            padding='5px'
+                            bg = "blue.500"
+                            padding = '5px'
                         >
                             {headerGroup.headers.map((column) => (
                             <Th
                                 {...column.getHeaderProps(column.getSortByToggleProps())}
-                                color='white'
-                                fontSize='md'
-                                minH='41px'
-                                minW='174px'
+                                color = 'white'
+                                fontSize = 'md'
+                                minH = '41px'
+                                minW = '174px'
                             >
                                 {column.render('Header')}
-                                <Text as='span' pl='4'>
+                                <Text as = 'span' pl = '4'>
                                     {column.isSorted ? (
                                         column.isSortedDesc ? (
-                                        <TriangleDownIcon aria-label='sorted descending' />
+                                        <TriangleDownIcon aria-label = 'sorted descending' />
                                         ) : (
-                                        <TriangleUpIcon aria-label='sorted ascending' />
+                                        <TriangleUpIcon aria-label = 'sorted ascending' />
                                         )
                                     ) : null}
                                 </Text>
@@ -237,8 +237,8 @@ export default function ShowContactsList({contactList}:ShowContactsListProps) {
                             prepareRow(row)
                             return (
                                 <Tr {...row.getRowProps()} 
-                                    onClick={()=>{showContactDetails(contactList[index])}}
-                                    cursor='pointer'
+                                    onClick = {()=>{showContactDetails(contactList[index])}}
+                                    cursor = 'pointer'
                                 >
                                     {row.cells.map((cell) => (
                                         <Td {...cell.getCellProps()}>
@@ -253,5 +253,4 @@ export default function ShowContactsList({contactList}:ShowContactsListProps) {
             </Box>
         </HStack>
     )
-
 }

@@ -26,23 +26,23 @@ export default function Home() {
     return (
         <VStack justifyContent = "space-between"
                 marginTop = "33px"
-                paddingLeft= {{base: "12px", md:"20px",lg:"40px", xl:"50px"}}
+                paddingLeft = {{base: "12px", md:"20px",lg:"40px", xl:"50px"}}
                 paddingRight = {{base: "12px", md:"20px",lg:"40px", xl:"50px"}}
                 flexDirection = "column"
-                spacing={10}
+                spacing = {10}
         >
 
-        <Heading color='blue.500'>
+        <Heading color = 'blue.500'>
             Lista de Contatos
         </Heading>
         
-        <Box w="100%">
+        <Box w = "100%">
 
             {errMessage!=='' ? 
                 (
-                    <Flex w="100%" alignItems='center' justifyContent='center'>
-                        <Text fontSize='lg'
-                              textAlign='center'
+                    <Flex w = "100%" alignItems = 'center' justifyContent = 'center'>
+                        <Text fontSize = 'lg'
+                              textAlign = 'center'
                         >
                             Não foi possível carregar os contatos
                         </Text>
@@ -51,11 +51,11 @@ export default function Home() {
             : 
             (
             isLoading ? 
-                (<Progress size='md' isIndeterminate />) 
+                (<Progress size = 'md' isIndeterminate />) 
                 : 
                 (
                     <ShowContactsList 
-                        contactList={contactsList}
+                        contactList = {contactsList}
                     />
                 )
             )}
